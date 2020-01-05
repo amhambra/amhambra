@@ -15,6 +15,7 @@ repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -29,9 +30,29 @@ dependencies {
 
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
+
+/*
+    implementation 'com.google.api-client:google-api-client:1.30.7'
+    implementation 'com.google.apis:google-api-services-calendar:v3-rev20191117-1.30.3'
+    implementation 'com.google.apis:google-api-services-people:v1-rev20190910-1.30.3'
+*/
+
+    implementation 'com.google.api-client:google-api-client:1.23.0'
+    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.23.0'
+    implementation 'com.google.apis:google-api-services-people:v1-rev277-1.23.0'
+
 }
 
 test {
     // Use junit platform for unit tests
     useJUnitPlatform()
 }
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'net.fschulte.littlecontact.PeopleQuickstart'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+version = '1.0'
